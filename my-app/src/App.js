@@ -18,15 +18,7 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route
-            path="*"
-            element={
-              <>
-                <UnderNavBar />
-                <MovieDetails />
-              </>
-            }
-          />
+          <Route path="*" element={<UnderNavBar />} />
           <Route path="/tv-shows" element={<TvShows />} />
           <Route
             path="/matrix-saga"
@@ -56,7 +48,7 @@ function App() {
               </>
             }
           />
-          {/* <Route path="*" element={<MovieDetails />} /> */}
+          <Route path="/movie-details/:movieId" element={<MovieDetails />} />
         </Routes>
       </BrowserRouter>
     </>
