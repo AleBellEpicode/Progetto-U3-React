@@ -1,5 +1,6 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
 import logo from "../netflix-clone/assets/logo.png";
+import { Link, useLocation } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -8,22 +9,25 @@ function NavBar() {
         <img src={logo} className="App-logo" alt="logo" />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link className="whenHover" href="#home">
-              Home
-            </Nav.Link>
-            <Nav.Link className="whenHover" href="#link">
-              Tv Shows
-            </Nav.Link>
-            <Nav.Link className="whenHover" href="#link">
-              Movies
-            </Nav.Link>
-            <Nav.Link className="whenHover" href="#link">
-              Recently Added
-            </Nav.Link>
-            <Nav.Link className="whenHover" href="#link">
-              My List
-            </Nav.Link>
+          <Nav className="gap-3">
+            <Link className="whenHover text-decoration-none" to="/tv-shows">
+              TvShows
+            </Link>
+            <Link className="whenHover text-decoration-none" to="/matrix-saga">
+              Matrix Saga
+            </Link>
+            <Link
+              className="whenHover text-decoration-none"
+              to="/lord-of-the-rings"
+            >
+              Lord of The Rings
+            </Link>
+            <Link
+              className="whenHover text-decoration-none"
+              to="/star-wars-saga"
+            >
+              Star Wars Saga
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

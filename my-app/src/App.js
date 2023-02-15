@@ -9,17 +9,56 @@ import ThirdRow from "./Components/ThirdRow";
 import Row1Title from "./Components/Row1Title";
 import Row2Title from "./Components/Row2Title";
 import Row3Title from "./Components/Row3Title";
+import TvShows from "./Components/TvShows";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MovieDetails from "./Components/MovieDetails";
 function App() {
   return (
     <>
-      <NavBar />
-      <UnderNavBar />
-      <Row1Title />
-      <FirstRow />
-      <Row2Title />
-      <SecondRow />
-      <Row3Title />
-      <ThirdRow />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route
+            path="*"
+            element={
+              <>
+                <UnderNavBar />
+                <MovieDetails />
+              </>
+            }
+          />
+          <Route path="/tv-shows" element={<TvShows />} />
+          <Route
+            path="/matrix-saga"
+            element={
+              <>
+                <Row1Title />
+                <FirstRow />
+              </>
+            }
+          />
+          <Route element={<FirstRow />} />
+          <Route
+            path="/lord-of-the-rings"
+            element={
+              <>
+                <Row2Title />
+                <SecondRow />
+              </>
+            }
+          />
+          <Route
+            path="/star-wars-saga"
+            element={
+              <>
+                <Row3Title />
+                <ThirdRow />
+              </>
+            }
+          />
+          {/* <Route path="*" element={<MovieDetails />} /> */}
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

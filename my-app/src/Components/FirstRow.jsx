@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Row, Col, Card, Spinner, Alert } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 class FirstRow extends Component {
   state = {
     filmArray: [],
@@ -15,6 +15,7 @@ class FirstRow extends Component {
       );
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
         this.setState({
           filmArray: data.Search,
           loading: false,
@@ -63,6 +64,9 @@ class FirstRow extends Component {
                   <Card.Img variant="top" src={Film.Poster} />
                   <Card.Body>
                     <Card.Title>{Film.Title}</Card.Title>
+                    <Link to={"/movie-details/" + Film.imdbID}>
+                      Clicca qua per piu dettagli
+                    </Link>
                   </Card.Body>
                 </Card>
               </Col>
